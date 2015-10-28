@@ -37,18 +37,18 @@
     	}
     	
       	function stat(topicName) {
-    		window.location.href = "stats.do?topic=" + topicName;
+    		window.location.href = "stats.do?topic=" + encodeURIComponent(topicName);
     	}
     	
     	function route(topicName) {
-    		window.location.href = "route.do?topic=" + topicName;
+    		window.location.href = "route.do?topic=" + encodeURIComponent(topicName);
     	}
     	
     	function del(topicName) {
-    		window.location.href = "delete.do?topic=" + topicName;
+    		window.location.href = "delete.do?topic=" + encodeURIComponent(topicName);
     	}
     
     	function upd(topicName) {
-    		window.location.href = "update.do?topic=" + topicName;
+    		window.location.href = "update.do?topic=" + encodeURIComponent(topicName);
     	}
     </script>
