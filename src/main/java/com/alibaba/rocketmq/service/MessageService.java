@@ -1,19 +1,5 @@
 package com.alibaba.rocketmq.service;
 
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import org.apache.commons.cli.Option;
-import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-
 import com.alibaba.rocketmq.client.QueryResult;
 import com.alibaba.rocketmq.client.consumer.DefaultMQPullConsumer;
 import com.alibaba.rocketmq.client.consumer.PullResult;
@@ -28,6 +14,19 @@ import com.alibaba.rocketmq.tools.command.message.QueryMsgByIdSubCommand;
 import com.alibaba.rocketmq.tools.command.message.QueryMsgByKeySubCommand;
 import com.alibaba.rocketmq.tools.command.message.QueryMsgByOffsetSubCommand;
 import com.alibaba.rocketmq.validate.CmdTrace;
+import org.apache.commons.cli.Option;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 /**
@@ -135,6 +134,9 @@ public class MessageService extends AbstractService {
             // bodyTmpFilePath//
             // );
             map.put("Message Body Path:", bodyTmpFilePath);
+
+            map.put("Body(Decode with UTF-8)", new String(msg.getBody(), "UTF-8"));
+
             return Table.Map2VTable(map);
         }
         catch (Throwable e) {
